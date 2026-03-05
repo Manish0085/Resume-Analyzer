@@ -1,0 +1,9 @@
+﻿
+C:\Users\manis\OneDrive\Desktop\Resume-Analyzer\frontend\src\features\auth\auth.context.jsx
+  3:14  error  Fast refresh only works when a file only exports components. Move your React context(s) to a separate file  react-refresh/only-export-components
+
+C:\Users\manis\OneDrive\Desktop\Resume-Analyzer\frontend\src\features\auth\pages\Register.jsx
+  12:13  error  'loading' is assigned a value but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+
+Γ£û 2 problems (2 errors, 0 warnings)
+

@@ -1,0 +1,30 @@
+﻿
+C:\Users\manis\OneDrive\Desktop\Resume-Analyzer\frontend\src\features\auth\auth.context.jsx
+  1:35  error  'useEffect' is defined but never used. Allowed unused vars must match /^[A-Z_]/u                            no-unused-vars
+  2:10  error  'getMe' is defined but never used. Allowed unused vars must match /^[A-Z_]/u                                no-unused-vars
+  4:14  error  Fast refresh only works when a file only exports components. Move your React context(s) to a separate file  react-refresh/only-export-components
+
+C:\Users\manis\OneDrive\Desktop\Resume-Analyzer\frontend\src\features\auth\hooks\useAuth.js
+   1:10  error    'use' is defined but never used. Allowed unused vars must match /^[A-Z_]/u                                                     no-unused-vars
+   3:17  error    'setUser' is defined but never used. Allowed unused vars must match /^[A-Z_]/u                                                 no-unused-vars
+   3:26  error    'loading' is defined but never used. Allowed unused vars must match /^[A-Z_]/u                                                 no-unused-vars
+   3:35  error    'setLoading' is defined but never used. Allowed unused vars must match /^[A-Z_]/u                                              no-unused-vars
+  16:15  error    'err' is defined but never used                                                                                                no-unused-vars
+  16:19  error    Empty block statement                                                                                                          no-empty
+  29:14  error    Empty block statement                                                                                                          no-empty
+  40:19  error    'data' is assigned a value but never used. Allowed unused vars must match /^[A-Z_]/u                                           no-unused-vars
+  43:14  error    Empty block statement                                                                                                          no-empty
+  53:32  error    'getMe' is not defined                                                                                                         no-undef
+  58:8   warning  React Hook useEffect has missing dependencies: 'setLoading' and 'setUser'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
+
+C:\Users\manis\OneDrive\Desktop\Resume-Analyzer\frontend\src\features\auth\pages\Login.jsx
+  4:19  error  'handleLogin' is defined but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+
+C:\Users\manis\OneDrive\Desktop\Resume-Analyzer\frontend\src\features\auth\pages\Register.jsx
+  12:12  error  'loadding' is assigned a value but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+
+C:\Users\manis\OneDrive\Desktop\Resume-Analyzer\frontend\src\features\auth\services\auth.api.js
+  43:43  error  'BASE_URL' is not defined  no-undef
+
+Γ£û 17 problems (16 errors, 1 warning)
+
