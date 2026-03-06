@@ -97,7 +97,7 @@ const Login = () => {
 
                 <div className="social-buttons">
                     <a
-                        href="http://localhost:8083/oauth2/authorization/google"
+                        href="https://ai-resume-analyze.duckdns.org/oauth2/authorization/google"
                         className="social-btn google"
                         id="google-login-btn"
                     >
@@ -110,7 +110,7 @@ const Login = () => {
                         Continue with Google
                     </a>
                     <a
-                        href="http://localhost:8083/oauth2/authorization/github"
+                        href="https://ai-resume-analyze.duckdns.org/oauth2/authorization/github"
                         className="social-btn github"
                         id="github-login-btn"
                     >
