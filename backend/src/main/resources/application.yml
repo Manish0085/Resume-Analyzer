@@ -71,12 +71,14 @@ security:
     cookie-http-only: ${JWT_COOKIE_HTTP_ONLY:true}
     cookie-same-site: ${JWT_COOKIE_SAME_SITE:lax}
     cookie-domain: ${JWT_COOKIE_DOMAIN:localhost}
+  cors:
+    allowed-origins: ${ALLOWED_ORIGINS:http://localhost:5173}
 
 app:
   auth:
     frontend:
-      success-redirect: "http://localhost:5173/"
-      failure-redirect: "http://localhost:5173/auth/failure"
+      success-redirect: "${ALLOWED_ORIGINS}/"
+      failure-redirect: "${ALLOWED_ORIGINS}/auth/failure"
 
 ai:
   openrouter:
