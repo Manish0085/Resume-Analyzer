@@ -18,6 +18,7 @@ FROM eclipse-temurin:17-jre-jammy
 WORKDIR /app
 
 COPY --from=build /app/target/*.jar app.jar
+ENV JAVA_TOOL_OPTIONS="-Djava.net.preferIPv4Stack=true"
 
 EXPOSE 8081
 
