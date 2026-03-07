@@ -18,7 +18,7 @@ spring:
 
   jpa:
     hibernate:
-      ddl-auto: update
+      ddl-auto: validate
     show-sql: true
     properties:
       hibernate:
@@ -58,8 +58,8 @@ spring:
 
 logging:
   level:
-    org.springframework.security: TRACE
-    org.springframework.web.client.RestTemplate: TRACE
+    org.springframework.security: WARN
+    org.springframework.web.client.RestTemplate: WARN
 
 security:
   jwt:
