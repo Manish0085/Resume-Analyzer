@@ -41,13 +41,13 @@
 
 *(Add your actual application screenshots here for a stunning look!)*
 
-| Landing Page | AI Dashboard |
-| :---: | :---: |
-| ![Landing Page Placeholder](https://via.placeholder.com/600x400?text=Modern+Landing+Page) | ![Dashboard Placeholder](https://via.placeholder.com/600x400?text=AI+Insights+Dashboard) |
+|         Login Page          | AI Dashboard |
+|:-----------------------------:| :---: |
+| ![Landing Page Placeholder](./Login.png) | ![Dashboard Placeholder](./Dashboard.png) |
 
 | Analysis Report | Mobile View |
 | :---: | :---: |
-| ![Report Placeholder](https://via.placeholder.com/600x400?text=Skill+Gap+Analysis) | ![Mobile Placeholder](https://via.placeholder.com/300x600?text=Responsive+Design) |
+| ![Report Placeholder](./report.png) | ![Mobile Placeholder](./mobile.png) |
 
 ---
 
@@ -130,11 +130,6 @@ npm run dev
 If you experience `JwtValidationException` errors during Google Login, ensure your system clock is synchronized:
 1. Go to Windows **Date & Time settings**.
 2. Click **Sync Now** to ensure your local time matches Google's global servers.
-
----
-
-## 📄 License
-Distributed under the MIT License. See `LICENSE` for more information.
 
 ---
 Created with ❤️ by [Manish](https://github.com/Manish0085)
