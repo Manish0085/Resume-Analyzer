@@ -73,7 +73,7 @@ public class InterviewReportServiceImpl implements InterviewReportService {
         @Override
         public InterviewReport getReportById(UUID interviewId, UUID userId) {
                 return interviewReportRepository
-                                .findByIdAndUserId(interviewId, userId)
+                                .findByIdAndUser_Id(interviewId, userId)
                                 .orElseThrow(() -> new ResourceNotFoundException("Interview report not found."));
         }
 
