@@ -1,16 +1,26 @@
 pipeline {
     agent any
 
+    options {
+        timestamps()
+    }
+
+    environment {
+        PROJECT_NAME = "Resume Analyzer"
+    }
+
     stages {
 
         stage('Clean Workspace') {
             steps {
+                echo "Cleaning workspace..."
                 deleteDir()
             }
         }
 
         stage('Clone Repository') {
             steps {
+                echo "Cloning repository..."
                 git branch: 'main', url: 'https://github.com/Manish0085/Resume-Analyzer.git'
             }
         }
@@ -23,10 +33,6 @@ pipeline {
                 ]) {
                     sh '''
                     echo "Workspace: $WORKSPACE"
-                    cd "$WORKSPACE"
-
-                    echo "Project Structure:"
-                    ls -la
 
                     cp "$BACKEND_ENV" backend/.env
                     cp "$FRONTEND_ENV" frontend/.env
@@ -39,15 +45,17 @@ pipeline {
 
         stage('Verify Docker Installation') {
             steps {
-                sh 'docker --version'
-                sh 'docker-compose --version'
+                sh '''
+                docker --version
+                docker-compose --version
+                '''
             }
         }
 
         stage('Stop Old Containers') {
             steps {
                 sh '''
-                cd "$WORKSPACE"
+                echo "Stopping old containers..."
                 docker-compose down || true
                 '''
             }
@@ -56,7 +64,7 @@ pipeline {
         stage('Build Docker Images') {
             steps {
                 sh '''
-                cd "$WORKSPACE"
+                echo "Building Docker images..."
                 docker-compose build
                 '''
             }
@@ -65,7 +73,7 @@ pipeline {
         stage('Start Containers') {
             steps {
                 sh '''
-                cd "$WORKSPACE"
+                echo "Starting containers..."
                 docker-compose up -d
                 '''
             }
@@ -73,18 +81,61 @@ pipeline {
 
         stage('Verify Running Containers') {
             steps {
-                sh 'docker ps'
+                sh '''
+                echo "Running containers:"
+                docker ps
+                '''
+            }
+        }
+
+        stage('Application Health Check') {
+            steps {
+                sh '''
+                echo "Checking application health..."
+                sleep 10
+                curl -f http://localhost || exit 1
+                '''
             }
         }
 
     }
 
     post {
+
         success {
-            echo "Deployment Successful 🚀"
+            mail to: 'your-email@gmail.com',
+            subject: "✅ Deployment Successful - ${env.JOB_NAME}",
+            body: """
+🚀 Deployment Successful
+
+Project: ${env.JOB_NAME}
+Build Number: #${env.BUILD_NUMBER}
+
+Build Logs:
+${env.BUILD_URL}
+
+Server: ${env.NODE_NAME}
+"""
         }
+
         failure {
-            echo "Pipeline Failed ❌"
+            mail to: 'your-email@gmail.com',
+            subject: "❌ Deployment Failed - ${env.JOB_NAME}",
+            body: """
+🚨 Deployment Failed
+
+Project: ${env.JOB_NAME}
+Build Number: #${env.BUILD_NUMBER}
+
+Check Jenkins logs:
+${env.BUILD_URL}
+
+Server: ${env.NODE_NAME}
+"""
+        }
+
+        always {
+            echo "Pipeline execution finished."
         }
     }
 }
